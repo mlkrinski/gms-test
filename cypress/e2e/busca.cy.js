@@ -5,13 +5,14 @@ describe('US-015-Funcionalidade: Busca de filmes', () => {
     cy.visit('/')
   });
 
+
   it('Deve buscar filme com sucesso', () => {
     cy.get('#search-input').type('Matrix')
     cy.get('#search-button').click()
     cy.get('#results-section').should('contain', 'Matrix')
   })
 
-  it('Deve buscr filmes com sucesso de uma lista', () => {
+  it('Deve buscar filmes com sucesso de uma lista', () => {
     cy.fixture('filmes').then((filmes) => {
       cy.get('#search-input').type(filmes[3].titulo)
       cy.get('#search-button').click()
